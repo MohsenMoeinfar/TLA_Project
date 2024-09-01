@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 from math import log2
 from phase0.FA_class import DFA, State
 from utils.utils import imageType
@@ -22,10 +24,6 @@ def solve(json_str: str, resolution: int) -> imageType:
 
 
 def Divide(start: State,fa: DFA, left_right: list['int'], top_down: list['int'],obj : Obj):
-    # ,[left_right[0],mid_left_right],[top_down[0],mid_top_down]
-    # ,[left_right[0],mid_left_right],[mid_top_down+1,top_down[1]]
-    # ,[mid_left_right+1,left_right[1]],[top_down[0],mid_top_down]
-    # ,[mid_left_right+1,left_right[1]],[mid_top_down+1,top_down[1]]
     if (left_right[0]==left_right[1]):
         if fa.is_final(start):
             obj.image[top_down[0]][left_right[0]]=1

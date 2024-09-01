@@ -1,5 +1,7 @@
-from utils.utils import imageType
+import sys
+sys.path.append("..")
 from phase0.FA_class import DFA
+from utils.utils import imageType
 from phase2 import module2
 
 

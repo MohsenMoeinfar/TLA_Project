@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 from phase0.FA_class import DFA, State
 from utils import utils
 from utils.utils import imageType
@@ -12,16 +14,19 @@ class Counter:
         self.cnt=0
         
 
+useThis = Counter()
+
 def solve(json_str: str, image: imageType) -> bool:
     fa = DFA.deserialize_json(json_str)
     q0 = fa.init_state
     left_right = [0,len(image[0])-1]
-    top_down   = [0,len(image[0])-1] 
+    top_down   = [0,len(image[0])-1]
     notSolved  = ReturnBool(False)
     different   = Counter()
     same = Counter()
     Divide_Check(q0,image,left_right,top_down,fa,notSolved,different,same)
-    print("{:.2f}".format(100*(same.cnt/(different.cnt+same.cnt))))
+    useThis.cnt=100*(same.cnt/(different.cnt+same.cnt))
+    print("{:.2f}".format(useThis.cnt))
     return not notSolved.mybool
 
 

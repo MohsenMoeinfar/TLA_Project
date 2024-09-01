@@ -1,3 +1,5 @@
+import sys
+sys.path.append("..")
 from phase0.FA_class import DFA, State
 from visualization import visualizer
 from utils import utils
